@@ -31,7 +31,7 @@ class HomeController extends Controller
     
         if(Transaction::where('user_id',Auth::id())->count()){
             $user = Auth::user();
-            $transaction = $user->transactions()->first();
+            $transaction = DB::table('transactions')->latest()->first();
 
             error_log("Home Controller Here ");
             error_log($transaction->address);
