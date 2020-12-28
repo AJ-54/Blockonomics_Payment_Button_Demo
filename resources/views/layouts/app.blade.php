@@ -76,7 +76,7 @@
     
     <!-- Scripts -->   
     <script src="https://www.blockonomics.co/js/pay_button.js"></script>    
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
 
 </body>
 </html>
