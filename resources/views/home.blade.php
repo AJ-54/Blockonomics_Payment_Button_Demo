@@ -54,7 +54,7 @@
             <div class='row justify-content-center'>
             @foreach($premium as $product)
             <div class="card col-lg-3 col-md-1 m-2 p-2" style="width: 18rem;">
-                <img class="card-img-top" src="{{ asset($product->image) }}.jpg" alt="Card image cap">
+                <img class="card-img-top" src="{{ $product->image }}.jpg" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">{{$product->title}}</h5>
                     <p class="card-text">>{{$product->description}}</p>
