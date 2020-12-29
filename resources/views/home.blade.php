@@ -2,32 +2,40 @@
 
 @section('content')
     <div class="container">
-        @if(isset($transaction))
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <strong>Important!</strong> Your latest transaction 
-                @if ($transaction->status == '-2') 
-                    has been expired
-                @elseif ($transaction->status == '-1')
-                    has payment error 
-                @elseif ($transaction->status == '0') 
-                    has not been paid
-                @elseif ($transaction->status == '1') 
-                    is in process. We will unlock premium as soon as we receive confirm payment. Thank You 
-                    for your patience.
-                @elseif (($transaction->status == '2') )  
-                    is successfully paid. You are now a premium member!!
-                @endif
+        @if(!Auth::user()->premium)
+            @if(isset($transaction))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Important!</strong> Your latest transaction 
+                    @if ($transaction->status == '-2') 
+                        has been expired
+                    @elseif ($transaction->status == '-1')
+                        has payment error 
+                    @elseif ($transaction->status == '0') 
+                        has not been paid
+                    @elseif ($transaction->status == '1') 
+                        is in process. We will unlock premium as soon as we receive confirm payment. Thank You 
+                        for your patience.
+                    @elseif (($transaction->status == '2') )  
+                        is successfully paid. You are now a premium member!!
+                    @endif
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @else
+            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>Hi {{Auth::user()->name }}!</strong> You have not yet purchased premium. 
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-        @elseif (!Auth::user()->premium )
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong>Hi {{Auth::user()->name }}!</strong> You have not yet purchased premium. 
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
+        @else
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Hi {{Auth::user()->name }}!</strong> Enjoy premium paintings. 
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
         @endif
         <div class = 'jumbotron'>
             <h1 style='text-align:center;'> Paintings @if(Auth::user()->premium) - Premium Pass @endif  </h1>
