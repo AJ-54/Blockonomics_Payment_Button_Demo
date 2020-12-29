@@ -29,6 +29,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+            @endif
         @else
         <div class="alert alert-success alert-dismissible fade show" role="alert">
                 <strong>Hi {{Auth::user()->name }}!</strong> Enjoy premium paintings. 
