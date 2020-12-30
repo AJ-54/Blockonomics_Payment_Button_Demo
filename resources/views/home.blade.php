@@ -79,7 +79,7 @@
                             <img class="card-img-top" src="{{ $product->image }}.jpg" alt="Card image cap" style="width: 100%; height: 50%;">
                             <div class="card-body">
                                 <h5 class="card-title">{{$product->title}}</h5>
-                                <p class="card-text">>{{$product->description}}</p>
+                                <p class="card-text">{{$product->description}}</p>
                             </div>
                         </div>
                     @endforeach
