@@ -4,39 +4,16 @@
     <div class="container">
         @if(!Auth::user()->premium)
             @if(isset($transaction))
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                @if ($transaction->status == '1')
+                <div class="alert alert-primary alert-dismissible fade show" role="alert">
                     <strong>Important!</strong> Your latest transaction 
-                    @if ($transaction->status == '-2') 
-                        has been expired
-                    @elseif ($transaction->status == '-1')
-                        has payment error 
-                    @elseif ($transaction->status == '0') 
-                        has not been paid
-                    @elseif ($transaction->status == '1') 
                         is in process. We will unlock premium as soon as we receive confirm payment. Thank You 
                         for your patience.
-                    @elseif (($transaction->status == '2') )  
-                        is successfully paid. You are now a premium member!!
-                    @endif
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            @else
-            <div class="alert alert-info alert-dismissible fade show" role="alert">
-                <strong>Hi {{Auth::user()->name }}!</strong> You have not yet purchased premium. 
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-            </div>
+                @endif
             @endif
-        @else
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>Hi {{Auth::user()->name }}!</strong> Enjoy premium paintings. 
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
         @endif
         <div class = 'jumbotron'>
             <ul class="nav nav-tabs" id="myTab">
@@ -47,10 +24,9 @@
                     <a href="#premium" class="nav-link" data-toggle="tab">Premium</a>
                 </li>
             </ul>
+            <br>
             <div class="tab-content">
             <div id = 'standard' class="tab-pane fade show active">
-                <h1 style='text-align:center;'> Non-Premium Paintings </h1>
-                <hr>
                 <div class='row justify-content-center'>
                     @foreach($products as $product)
                         <div class="card col-md-3 col-sm-12 m-2 p-2">
@@ -71,8 +47,6 @@
                         <a href="" class="blockoPayBtn" data-toggle="modal" data-uid=7299c86444ea11eb><img width=160 src="https://www.blockonomics.co/img/pay_with_bitcoin_medium.png"></a>
                     </div>
                 @else
-                <h1 style='text-align:center;'> Premium Paintings</h1>
-                <hr>
                 <div class='row justify-content-center'>
                     @foreach($premium as $product)
                         <div class="card col-md-3 col-sm-12 m-2 p-2">
