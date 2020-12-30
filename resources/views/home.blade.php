@@ -53,11 +53,11 @@
                 <hr>
                 <div class='row justify-content-center'>
                     @foreach($products as $product)
-                        <div class="card col-lg-3 col-md-1 m-2 p-2" style="width: 18rem;">
-                            <img class="card-img-top" src="{{ $product->image }}.jpg" alt="Card image cap">
+                        <div class="card col-md-3 col-sm-12 m-2 p-2">
+                            <img class="card-img-top" src="{{ $product->image }}.jpg" alt="Card image cap" style="width: 100%; height: 50%;">
                             <div class="card-body">
                                 <h5 class="card-title">{{$product->title}}</h5>
-                                <p class="card-text">>{{$product->description}}</p>
+                                <p class="card-text">{{$product->description}}</p>
                             </div>
                         </div>  
                     @endforeach
@@ -75,8 +75,8 @@
                 <hr>
                 <div class='row justify-content-center'>
                     @foreach($premium as $product)
-                        <div class="card col-lg-3 col-md-1 m-2 p-2" style="width: 18rem;">
-                            <img class="card-img-top" src="{{ $product->image }}.jpg" alt="Card image cap">
+                        <div class="card col-md-3 col-sm-12 m-2 p-2">
+                            <img class="card-img-top" src="{{ $product->image }}.jpg" alt="Card image cap" style="width: 100%; height: 50%;">
                             <div class="card-body">
                                 <h5 class="card-title">{{$product->title}}</h5>
                                 <p class="card-text">>{{$product->description}}</p>
