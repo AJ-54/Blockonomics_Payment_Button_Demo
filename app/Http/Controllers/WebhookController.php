@@ -47,9 +47,10 @@ class WebhookController extends Controller
 
                 $transaction->address = $data->address;
                 $transaction->status = (string)$data->status;
-                $mail = $data->emailid;
+                $mail = $data->data->emailid;
 
                 $user = User::where('email','=',$mail)->first();
+                error_log($user->email);
                 if($transaction->status == 2){
                     $user->premium = 1;
                     $user->save();
