@@ -28,27 +28,13 @@ class HomeController extends Controller
     public function index()
     {
         $products = Product::all()->where('paid',0);
-    
-        if(Transaction::where('user_id',Auth::id())->count()){
-            $user = Auth::user();
-            $transaction = DB::table('transactions')->where('user_id',Auth::id())->latest()->first();
-
-            error_log("Home Controller Here ");
-            error_log($transaction->address);
-            error_log($transaction->status);
-
-            if ($user->premium){
-                $premium = Product::all()->where('paid',1);
-                return view('home')->with(['premium' => $premium, 'products' => $products, 'transaction' => $transaction]);
-            }
-            else{
-                return view('home')->with(['products' => $products, 'transaction' => $transaction]);
-            }
-        }else{
+        $user = Auth::user();
+        if ($user->status == '2'){
+            $premium = Product::all()->where('paid',1);
+            return view('home')->with(['premium' => $premium, 'products' => $products]);
+        }
+        else{
             return view('home')->with(['products' => $products]);
         }
-        
-        
     }
-
 }
