@@ -37,7 +37,7 @@
                 <hr>                                                                                                                
             </div>
             <div id = 'premium' class="tab-pane fade">
-                @if(Auth::user()-status != '2')
+                @if(Auth::user()->status != '2')
                     <div style='text-align:center;'>
                         <p><strong>This section is accesible only to paying users.<br> Please use below button to complete purchase. You will automatically get access once your payment is confirmed </strong></p>
                         <a href="" class="blockoPayBtn" data-toggle="modal" data-uid=7299c86444ea11eb><img width=160 src="https://www.blockonomics.co/img/pay_with_bitcoin_medium.png"></a>
