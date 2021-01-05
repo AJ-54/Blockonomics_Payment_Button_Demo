@@ -31,7 +31,7 @@ class WebhookController extends Controller
            
             $mail = $data->data->emailid;
             $user = User::where('email','=',$mail)->first();
-            $user->status = (string)$data->status;
+            $user->status = (string)$status;
             error_log($user->email);
             $user->save();   
         }
