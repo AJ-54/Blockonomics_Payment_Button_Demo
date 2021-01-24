@@ -17,6 +17,7 @@ By now, you have installed all the dependencies and also created copy of the .en
 
 ```
 php artisan migrate
+php artisan storage:link
 php artisan serve
 ```
 
