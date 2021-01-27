@@ -18,6 +18,13 @@ By now, you have installed all the dependencies and also created copy of the .en
 ```
 php artisan migrate
 php artisan storage:link
+```
+
+Create your payment button from [here](https://www.blockonomics.co/merchants#/page3) by going to PAYMENT BUTTONS/URL tab. Get the button code to paste in the html page from step 01. Head to [this line](https://github.com/AJ-54/Blockonomics_Payment_Button_Demo/blob/main/resources/views/home.blade.php#L44) and replace the payment button code with your code.
+
+Go to `OPTIONS` in the PAYMENT BUTTONS/URL tab on [this page](https://www.blockonomics.co/merchants#/page3). You need to setup the `ORDER HOOK URL` and `Redirection URL`. To test the code locally, follow instructions from [this](https://www.youtube.com/watch?v=6Ydk32avIgo) video and make sure to place the `<domain>/receive` as your order hook url and `<domain>/home` as redirection url. Here `<domain>` is the domain you get from reverse proxy (Nginx/localtunnel). Make sure to save your changes!
+
+```
 php artisan serve
 ```
 
