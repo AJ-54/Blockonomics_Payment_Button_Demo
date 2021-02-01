@@ -16,7 +16,8 @@ This demo uses the Payment Button API provided by Blockonomics to receive Bitcoi
 * Place your Blockonomics API Key in the `Blockonomics_API` field. This will allow us to run migrations in the next step.
 * `php artisan migrate`
 * `php artisan storage:link`
-* Create your payment button from [here](https://www.blockonomics.co/merchants) by going to PAYMENT BUTTONS/URL tab. Get the button code to paste in the html page from step 01. * Head to [this line](https://github.com/AJ-54/Blockonomics_Payment_Button_Demo/blob/main/resources/views/home.blade.php#L44) and replace the payment button code with your code.
+* Create your payment button from [here](https://www.blockonomics.co/merchants) by going to PAYMENT BUTTONS/URL tab. Get the button code to paste in the html page from step 01.
+* Head to [this line](https://github.com/AJ-54/Blockonomics_Payment_Button_Demo/blob/main/resources/views/home.blade.php#L44) and replace the payment button code with your code.
 * Go to `OPTIONS` in the PAYMENT BUTTONS/URL tab on [this page](https://www.blockonomics.co/merchants#/page3). You need to setup the `ORDER HOOK URL` and `Redirection URL`.
 * To test the code locally, follow instructions from [this](https://www.youtube.com/watch?v=6Ydk32avIgo) video and make sure to place the `<domain>/receive` as your order hook url and `<domain>/home` as redirection url. Here `<domain>` is the domain you get from reverse proxy (Ngrok/localtunnel).
 * Please make sure you are using `http` and not `https`. Your domain would be in `https` but place `http` URL in the order hook url and redirection url. 
