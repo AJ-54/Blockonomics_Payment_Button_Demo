@@ -42,6 +42,7 @@ This demo uses the Payment Button API provided by Blockonomics to receive Bitcoi
 <details>
 <summary> Blockonomics Website Setup </summary>
 
+* Create your Blockonomics Account- [here](https://www.blockonomics.co/merchants?ref=hPga3rGcrDj45w1C2jzkDMUPGBkCRYxNE6)
 * Create your payment button from [here](https://www.blockonomics.co/merchants) by going to PAYMENT BUTTONS/URL tab. Get the button code to paste in the html page from step 01.
 * Head to [this line](https://github.com/AJ-54/Blockonomics_Payment_Button_Demo/blob/main/resources/views/home.blade.php#L44) and replace the payment button code with your code.
 * Go to `OPTIONS` in the PAYMENT BUTTONS/URL tab on [this page](https://www.blockonomics.co/merchants#/page3). You need to setup the `ORDER HOOK URL` and `Redirection URL`.
